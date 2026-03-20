@@ -64,6 +64,14 @@ const patentData = {
       expertise: ["微电子", "芯片设计"],
       match: 85,
     },
+    {
+      name: "欧阳慕容",
+      org: "北京某某科技有限公司研发中心",
+      role: "共同发明人",
+      patents: 42,
+      expertise: ["晶型药物开发", "药物分析", "制剂工艺优化"],
+      match: 92,
+    },
   ],
   applicants: [
     {
@@ -77,6 +85,12 @@ const patentData = {
       type: "企业",
       patents: 340,
       expertise: ["医药研发", "创新药"],
+    },
+    {
+      name: "上海某某医药科技发展集团股份有限公司",
+      type: "企业",
+      patents: 120,
+      expertise: ["靶向药物", "临床研究", "医药中间体合成"],
     },
   ],
   claims:
@@ -210,17 +224,8 @@ const HeaderSection = () => (
       </span>
     </div>
 
-    <h1 className="text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight flex flex-wrap">
-      {patentData.title.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.03 + 0.2 }}
-        >
-          {char}
-        </motion.span>
-      ))}
+    <h1 className="text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
+      {patentData.title}
     </h1>
 
     <div className="flex flex-wrap items-center gap-6 text-sm text-slate-600">
@@ -541,7 +546,9 @@ const StakeholdersSection = () => {
                   {inv.name[0]}
                 </div>
                 <div className="min-w-0">
-                  <div className="font-bold text-slate-900 truncate">{inv.name}</div>
+                  <div className="font-bold text-slate-900 truncate">
+                    {inv.name}
+                  </div>
                   <div className="text-xs text-slate-500 truncate">
                     {inv.org}
                   </div>
@@ -579,7 +586,9 @@ const StakeholdersSection = () => {
                   <Building2 className="w-6 h-6" />
                 </div>
                 <div className="min-w-0">
-                  <div className="font-bold text-slate-900 truncate">{app.name}</div>
+                  <div className="font-bold text-slate-900 truncate">
+                    {app.name}
+                  </div>
                   <div className="text-xs text-slate-500 truncate">
                     {app.type} · {app.patents} 项专利
                   </div>
